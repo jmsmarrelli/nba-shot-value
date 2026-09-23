@@ -1,0 +1,43 @@
+5,627 player-seasons at 300+ attempts, 2004-2025
+
+--- 2024-25 shot quality ---
+        player team  fga    sq     sm
+   Rudy Gobert  MIN  510 1.420 -0.076
+   Jalen Duren  DET  546 1.360  0.032
+Daniel Gafford  DAL  403 1.305  0.107
+ Jarrett Allen  CLE  640 1.284  0.136
+  Clint Capela  ATL  390 1.271 -0.145
+    Yves Missi  NOP  491 1.267 -0.164
+Walker Kessler  UTA  418 1.259  0.093
+   Kel'el Ware  MIA  462 1.254 -0.058
+  Goga Bitadze  ORL  337 1.253 -0.008
+ Jeremy Sochan  SAS  467 1.238 -0.102
+
+--- 2024-25 shot making ---
+          player team  fga    sq    sm
+    Nikola Jokić  DEN 1335 1.022 0.260
+Payton Pritchard  BOS  853 1.060 0.206
+       Ty Jerome  CLE  614 1.022 0.205
+      Keon Ellis  SAC  463 1.100 0.181
+      Seth Curry  CHA  343 1.030 0.175
+    Luke Kennard  MEM  430 1.054 0.174
+    Kevin Durant  PHX 1123 1.032 0.172
+      Sam Hauser  BOS  473 1.092 0.171
+Domantas Sabonis  SAC  893 1.090 0.170
+    Jakob Poeltl  TOR  578 1.096 0.169
+
+--- 2024-25 points above expectation ---
+                 player team  fga   sq   sm  points_added
+           Nikola Jokić  DEN 1335 1.02 0.26        346.82
+           Kevin Durant  PHX 1123 1.03 0.17        192.73
+       Payton Pritchard  BOS  853 1.06 0.21        175.34
+         Nikola Vučević  CHI 1037 1.03 0.16        169.45
+       Domantas Sabonis  SAC  893 1.09 0.17        151.86
+          Stephen Curry  GSW 1246 1.03 0.12        150.20
+          Pascal Siakam  IND 1181 1.04 0.11        131.55
+Shai Gilgeous-Alexander  OKC 1652 1.07 0.08        128.57
+              Ty Jerome  CLE  614 1.02 0.20        125.78
+            Zach LaVine  SAC 1219 1.12 0.10        123.00
+
+players in both top-20 lists: 1 ['Jarrett Allen']
+corr(SQ, SM) across player-seasons: -0.213

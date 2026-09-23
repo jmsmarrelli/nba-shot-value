@@ -1,0 +1,20 @@
+                        label  r_half  r_full   n
+        Offence: shot quality   0.904   0.950 659
+         Offence: shot making   0.712   0.831 659
+Defence: shot quality allowed   0.824   0.903 659
+ Defence: shot making allowed   0.602   0.752 659
+
+--- 2024-25 best shot quality allowed ---
+team    sq     sm   pps
+ GSW 1.060  0.039 1.086
+ SAC 1.069  0.061 1.117
+ BOS 1.074 -0.013 1.049
+ DET 1.082  0.012 1.081
+ UTA 1.087  0.048 1.123
+ HOU 1.088 -0.015 1.061
+ OKC 1.088 -0.044 1.031
+ PHX 1.089  0.032 1.108
+
+R² of shot quality allowed on points allowed per shot: 0.136
+
+team defence, 2024 to 2025: shot quality allowed r = +0.86, shot making allowed r = +0.49

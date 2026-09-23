@@ -1,0 +1,36 @@
+                        label  r_half  r_full  r_next   n
+        Offence: shot quality   0.898   0.946   0.661 450
+         Offence: shot making   0.716   0.835   0.585 450
+Defence: shot quality allowed   0.824   0.903   0.716 450
+ Defence: shot making allowed   0.596   0.747   0.567 450
+
+   side metric   n  r_next  r_next_pps  r_same_pps
+Offence     sq 418   0.661       0.329       0.428
+Offence     sm 418   0.585       0.389       0.736
+Offence    pps 418   0.601       0.601       1.000
+Defence     sq 418   0.716       0.255       0.433
+Defence     sm 418   0.567       0.389       0.766
+Defence    pps 418   0.531       0.531       1.000
+
+--- 2024-25 best shot quality allowed ---
+team    sq     sm   pps
+ GSW 1.052  0.042 1.086
+ SAC 1.062  0.063 1.117
+ BOS 1.066 -0.010 1.049
+ DET 1.074  0.014 1.081
+ UTA 1.081  0.049 1.123
+ HOU 1.081 -0.013 1.061
+ OKC 1.082 -0.043 1.031
+ PHX 1.083  0.033 1.108
+
+average within-season spread across teams (SD):  shot quality allowed 0.0198, shot making allowed 0.0278
+
+predicting next season's points allowed per shot from this season's two halves
+   side         term   beta    se      t    r2   n
+Defence shot quality  0.374 0.043  8.726 0.283 418
+Defence  shot making  0.482 0.043 11.235 0.283 418
+Defence    intercept -0.000 0.042 -0.000 0.283 418
+   side         term  beta    se     t    r2   n
+Offence shot quality 0.487 0.041 11.91 0.367 418
+Offence  shot making 0.533 0.041 13.04 0.367 418
+Offence    intercept 0.000 0.039  0.00 0.367 418

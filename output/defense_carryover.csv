@@ -1,0 +1,7 @@
+side,metric,n,r_next,r_next_pps,r_same_pps
+Offense,sq,418,0.6605,0.3288,0.4282
+Offense,sm,418,0.5849,0.3887,0.736
+Offense,pps,418,0.6009,0.6009,1.0
+Defense,sq,418,0.7159,0.255,0.4334
+Defense,sm,418,0.5673,0.3893,0.7659
+Defense,pps,418,0.5314,0.5314,1.0

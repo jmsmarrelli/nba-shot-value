@@ -1,0 +1,5 @@
+model,spec,auc,log_loss,brier
+geometry only,geo,0.62724,0.65772,0.23281
+geometry + action + clock,full,0.66365,0.63624,0.22356
+league make rate,base,0.5,0.68992,0.24839
+distance only,dist,0.6241,0.65857,0.23317

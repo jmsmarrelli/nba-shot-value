@@ -1,0 +1,28 @@
+loaded 4,432,054 shots in 19s
+
+geo: dist, abs_x, y, angle, is_three
+  fold 1/5  train 3,545,553  score 886,501  trees 151
+  fold 2/5  train 3,545,665  score 886,389  trees 148
+  fold 3/5  train 3,545,666  score 886,388  trees 163
+  fold 4/5  train 3,545,666  score 886,388  trees 379
+  fold 5/5  train 3,545,666  score 886,388  trees 142
+  AUC 0.6272   largest calibration gap 0.0023
+
+full: dist, abs_x, y, angle, secs_left, is_three, is_home, family, period
+  fold 1/5  train 3,545,553  score 886,501  trees 268
+  fold 2/5  train 3,545,665  score 886,389  trees 346
+  fold 3/5  train 3,545,666  score 886,388  trees 224
+  fold 4/5  train 3,545,666  score 886,388  trees 235
+  fold 5/5  train 3,545,666  score 886,388  trees 205
+  AUC 0.6637   largest calibration gap 0.0040
+
+reference points
+
+                    model spec     auc  log_loss   brier
+            geometry only  geo 0.62724   0.65772 0.23281
+geometry + action + clock full 0.66365   0.63624 0.22356
+         league make rate base 0.50000   0.68992 0.24839
+            distance only dist 0.62410   0.65857 0.23317
+geo: mean xPPS 1.0245  vs actual 1.0245
+full: mean xPPS 1.0245  vs actual 1.0245
+total 556s

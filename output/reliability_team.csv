@@ -1,0 +1,5 @@
+label,side,metric,r_half,r_full,r_next,n
+Offense: shot quality,Offense,sq,0.8976,0.946,0.6605,450
+Offense: shot making,Offense,sm,0.7162,0.8346,0.5849,450
+Defense: shot quality allowed,Defense,sq,0.8237,0.9033,0.7159,450
+Defense: shot making allowed,Defense,sm,0.5957,0.7467,0.5673,450

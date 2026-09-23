@@ -1,0 +1,12 @@
+era-anchored geometry model (2013-2015)
+five-zone lookup table
+distance-only model
+full model (shown to fail, see figure 06)
+
+                                   spec  d_total  d_location  d_conversion  location_share
+  headline: geometry model, out of fold   0.1443      0.0491        0.0952          0.3400
+    geometry, trained on 2013-2015 only   0.1443     -0.1156        0.2599         -0.8011
+     five-zone league average, no model   0.1443      0.0543        0.0900          0.3766
+           distance and shot value only   0.1443      0.0437        0.1006          0.3026
+full model, contaminated by label drift   0.1443      0.1634       -0.0191          1.1325
+PIPELINE_DONE

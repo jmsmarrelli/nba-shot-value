@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shot quality and shot making</title>
+<meta name="description" content="An expected-value model over every NBA field goal attempt from 2003-04 through 2024-25 — 4,432,054 shots — used to separate two things that get reported as one number: the shots a ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --surface:#fcfcfb; --raised:#f4f3ef; --ink:#0b0b0b; --ink-2:#43423f; --ink-3:#7d7b74;
+  --rule:#e3e2dc; --accent:#1c5cab; --mark:#eb6834;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface:#14140f; --raised:#1e1e18; --ink:#f2f1ec; --ink-2:#c9c7bf; --ink-3:#8d8b83;
+    --rule:#2e2e27; --accent:#7fb0f0; --mark:#f2895a;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--surface); color:var(--ink);
+  font:400 17px/1.62 "Source Sans 3","Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-feature-settings:"kern" 1;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+.bar{border-bottom:1px solid var(--rule);background:var(--surface)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;padding-top:16px;padding-bottom:15px}
+.bar .slug{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12.5px;letter-spacing:.02em;color:var(--ink-2)
+}
+.bar nav{margin-left:auto;display:flex;gap:18px}
+.bar a{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12.5px;color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent
+}
+.bar a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+main{padding:0 0 96px}
+.col{max-width:700px}
+h1{
+  font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:700;font-size:clamp(30px,5.4vw,46px);line-height:1.08;
+  letter-spacing:-.022em;margin:54px 0 20px;max-width:640px
+}
+h2{
+  font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:600;font-size:22px;line-height:1.24;letter-spacing:-.012em;
+  margin:52px 0 14px;max-width:700px
+}
+h3{font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:600;
+  font-size:18.5px;letter-spacing:-.008em;margin:40px 0 8px}
+p.meta{font-size:14.5px;color:var(--ink-3);margin:-2px 0 16px}
+p.meta a{border-bottom-color:transparent}
+p.meta a:hover{border-bottom-color:currentColor}
+p{margin:0 0 18px;max-width:700px}
+p strong{font-weight:600}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(28,92,171,.32)}
+a:hover{border-bottom-color:currentColor}
+hr{border:0;border-top:1px solid var(--rule);margin:46px 0}
+ul,ol{margin:0 0 18px;padding-left:22px;max-width:700px}
+li{margin:0 0 8px}
+li>p{margin:0 0 8px}
+code{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.86em;background:var(--raised);padding:.12em .34em;border-radius:3px
+}
+pre{
+  background:var(--raised);border:1px solid var(--rule);border-radius:5px;
+  padding:15px 17px;overflow-x:auto;margin:0 0 22px;max-width:820px
+}
+pre code{background:none;padding:0;font-size:13px;line-height:1.55}
+em{color:var(--ink-2)}
+.tw{overflow-x:auto;margin:0 0 26px;max-width:980px}
+table{border-collapse:collapse;font-size:14.5px;min-width:100%}
+th,td{padding:7px 15px 7px 0;text-align:left;border-bottom:1px solid var(--rule);white-space:nowrap}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:11.5px;text-transform:uppercase;letter-spacing:.055em;
+  color:var(--ink-3);font-weight:500;border-bottom-color:var(--ink-3);white-space:normal
+}
+td.num{text-align:right;font-variant-numeric:tabular-nums;padding-right:22px}
+th.num{text-align:right;padding-right:22px}
+tbody tr:last-child td{border-bottom:0}
+figure{margin:30px 0 34px;max-width:980px}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:4px}
+.foot{border-top:1px solid var(--rule);padding:22px 0 40px}
+.foot .wrap{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:11.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  h1{margin-top:36px}
+  th,td{padding-right:14px}
+}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap"><span class="slug">nba-shot-value</span><nav><a href="docs/method.html">method</a><a href="https://github.com/jmsmarrelli/nba-shot-value">repository</a><a href="https://jmsmarrelli.github.io/basketball-analytics/">all projects</a></nav></div></header>
+<main><div class="wrap">
+<h1>Shot quality and shot making</h1>
+<p>An expected-value model over every NBA field goal attempt from 2003-04 through
+2024-25 — 4,432,054 shots — used to separate two things that get reported as one
+number: the shots a team or player generates, and what they do with them.</p>
+<p>The identity is simple. For any set of attempts,</p>
+<pre><code>points per shot  =  expected points per shot  +  (actual − expected)
+                    ────────────────────────     ─────────────────────
+                        the shots you take         the shots you make
+</code></pre>
+<p>Everything below is one of those two terms.</p>
+<hr>
+<h2>The finding I did not expect</h2>
+<p>The standard account of the last twenty years is that offenses got more efficient
+because they learned arithmetic: threes and layups beat long twos, so teams
+stopped taking long twos. League efficiency went up because the shot chart got
+smarter.</p>
+<p>The shot chart did get smarter. It is worth a little over a third of the gain.</p>
+<p>League points per field goal attempt went from <strong>0.946 to 1.090</strong> between 2003-04
+and 2024-25 (effective field goal percentage .473 to .545). Holding conversion
+fixed at the league's own all-era rate in each zone, and letting only the mix of
+zones move, accounts for <strong>+0.054 of that, 38%</strong>. The other <strong>+0.090, 62%</strong>, is
+teams converting better from the same places on the floor.</p>
+<p>And the conversion gain is not where the story says it should be:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Points per attempt, 2003-06</th>
+<th>2022-25</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>At the rim</td>
+<td class="num">1.173</td>
+<td class="num">1.329</td>
+<td class="num"><strong>+0.156</strong></td>
+</tr>
+<tr>
+<td>Paint, off the rim</td>
+<td class="num">0.792</td>
+<td class="num">0.885</td>
+<td class="num"><strong>+0.093</strong></td>
+</tr>
+<tr>
+<td>Mid-range</td>
+<td class="num">0.782</td>
+<td class="num">0.839</td>
+<td class="num"><strong>+0.057</strong></td>
+</tr>
+<tr>
+<td>Corner three</td>
+<td class="num">1.150</td>
+<td class="num">1.163</td>
+<td class="num">+0.014</td>
+</tr>
+<tr>
+<td>Above-the-break three</td>
+<td class="num">1.057</td>
+<td class="num">1.072</td>
+<td class="num">+0.015</td>
+</tr>
+</tbody>
+</table></div>
+<p>League three-point percentage over those twenty-two seasons: <strong>.354 to .363</strong>.
+Two-point percentage: <strong>.460 to .545</strong>.</p>
+<p>Three-point volume went from 18% of attempts to 42%, and three-point accuracy went
+essentially nowhere. What moved was the two. The revolution's payoff was never
+that the league learned to shoot from distance. It was that pulling five defenders
+out to the arc made everything inside it easier, and the scoreboard collected on
+the layups.</p>
+<figure><img loading="lazy" alt="League decomposition" src="figures/01_league_decomposition.png"></figure>
+<figure><img loading="lazy" alt="Zone value" src="figures/03_zone_value.png"></figure>
+<p>The mix moved a long way to produce that +0.054. Mid-range attempts fell from 36%
+of all shots to under 10%; above-the-break threes went from 13% to 31%.</p>
+<figure><img loading="lazy" alt="Zone shares" src="figures/02_zone_shares.png"></figure>
+<figure><img loading="lazy" alt="Shot migration" src="figures/05_shot_migration.png"></figure>
+<p>Whether the easier twos come from better spacing, better finishers, or twenty
+years of rule changes around contact, this data cannot say — a public shot file
+has no defender in it. What it can say is where to stop looking. Three-point
+accuracy is not the lever it is usually described as.</p>
+<p><code>src/run_07_robustness.py</code> rebuilds that split six more ways: the gradient-boosted
+geometry model over all seasons and over the modern era alone, the zone yardstick
+on the same modern window, a model trained on three middle seasons and applied out
+of era, and distance alone. Every specification that avoids a feature which
+drifted puts the location share between 22% and 48%. The one that disagrees is
+the one that uses a drifting feature, and it is in the table by name.</p>
+<hr>
+<h2>The two things that nearly broke it</h2>
+<p>My first version of this used a richer model — location plus the shot's action
+type ("driving layup", "step back jump shot", "tip shot") plus clock and venue. It
+scores better on every metric. It also produced the opposite answer: 113% of the
+gain from shot selection, with conversion <em>declining</em>.</p>
+<p>That answer was an artifact, and finding out why is the part of this project I
+would defend hardest in a room. There were two problems, and they are both in the
+source data rather than in the model.</p>
+<p><strong>The action-type vocabulary changed mid-sample.</strong> "Floating jump shot",
+"pull-up jump shot" and "step back jump shot" do not appear anywhere in the
+2003-04 file. They enter the data between 2007 and 2009 and now account for 28%
+of all attempts. The plain "layup shot" they were carved out of falls from 16.2%
+of attempts to 1.6% over the same period. Nobody stopped shooting layups; the
+scorer's table started writing them down differently.</p>
+<p><strong>Shot coordinates changed too.</strong> Before 2010-11, roughly four out of five
+restricted-area attempts are logged at the rim's own coordinate rather than where
+the shot was taken. A quarter of <em>all</em> attempts in those seasons sit at exactly
+zero feet, against 5% afterwards — and those "zero-foot" shots convert at 60%
+before the change and 76% after, because afterwards only real dunks and tip-ins
+get filed there.</p>
+<figure><img loading="lazy" alt="Data quality" src="figures/06_data_quality.png"></figure>
+<p>A model handed either feature will read a change in the scorer's table as a change
+in basketball. So the era comparison uses a five-bucket zone label and nothing
+else, because a zone is the only description of a shot whose meaning is the same
+at both ends of the sample, and anything that leans on fine coordinates —
+the value surface, the migration map, the reliability work — starts in 2010-11.
+The richer model is still the better model <em>within</em> a season, where the
+vocabulary is stable, and that is the only place it is used.</p>
+<p>I would rather have a worse instrument that means the same thing at both ends than
+a better one that does not.</p>
+<hr>
+<h2>Two skills, and how long each takes to see</h2>
+<p>Splitting a player-season the same way gives shot quality (the average expected
+value of what he took) and shot making (points per attempt above that). In 2024-25
+the two lists barely intersect — one player appears in both top twenties — and
+across all qualified player-seasons the two are mildly <em>negatively</em> correlated
+(r = −0.21). Players who generate good looks are, if anything, slightly worse at
+making hard ones.</p>
+<figure><img loading="lazy" alt="Player quadrant" src="figures/07_player_quadrant.png"></figure>
+<figure><img loading="lazy" alt="Leaderboards" src="figures/08_leaderboards.png"></figure>
+<p>Rudy Gobert led the league in shot quality in 2024-25 at 1.42 expected points per
+attempt, which is what happens when a player takes nothing but shots at the rim.
+Nikola Jokić led in shot making at +0.260 per attempt over 1,335 attempts — 347
+points above what a league-average shooter would have scored on the same shots,
+and the largest single-season figure in the file.</p>
+<p>The more useful question is how fast each one becomes trustworthy. Taking two
+disjoint random samples of <em>m</em> attempts from the same player-season and
+correlating across players, averaged over twelve draws:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Attempts in each half</th>
+<th>Shot quality</th>
+<th>Shot making</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="num">50</td>
+<td class="num">0.78</td>
+<td class="num">0.17</td>
+</tr>
+<tr>
+<td class="num">100</td>
+<td class="num">0.87</td>
+<td class="num">0.27</td>
+</tr>
+<tr>
+<td class="num">200</td>
+<td class="num">0.92</td>
+<td class="num">0.41</td>
+</tr>
+<tr>
+<td class="num">400</td>
+<td class="num">0.93</td>
+<td class="num">0.56</td>
+</tr>
+<tr>
+<td class="num">600</td>
+<td class="num">0.95</td>
+<td class="num">0.68</td>
+</tr>
+</tbody>
+</table></div>
+<p>Shot quality is half signal inside 25 attempts. Shot making needs <strong>303</strong>. A
+40-game sample of a role player's shot making is close to noise; the same sample
+of his shot profile is close to settled.</p>
+<figure><img loading="lazy" alt="Reliability" src="figures/09_reliability_curve.png"></figure>
+<p>Season to season, with 300+ attempts in both years (n = 2,790): shot quality
+carries at r = 0.89, shot making at 0.60, and raw points per shot at 0.69. Shot
+making is a real skill. It is a slow one to measure, and the number of attempts
+most in-season arguments are built on is nowhere near enough.</p>
+<figure><img loading="lazy" alt="Year over year" src="figures/10_year_over_year.png"></figure>
+<hr>
+<h2>The same split on defense</h2>
+<p>Every shot has a defense attached: the other team in the game. Reversing the
+identity gives shot quality allowed and shot making allowed.</p>
+<p>The usual claim is that defenses control location and not conversion. The data
+does not support the strong version of it. Inside a single season both halves look
+like skills, because a team-season is about 7,000 opponent attempts and almost
+anything is stable at that sample. Across seasons they separate, but not cleanly:
+shot quality allowed carries at r = 0.72, shot making allowed at 0.57.</p>
+<figure><img loading="lazy" alt="Team reliability" src="figures/11_team_reliability.png"></figure>
+<p>And when you ask which half of this season's defense predicts <em>next</em> season's
+points allowed per shot, shot making allowed wins — standardized β = 0.48 against
+0.37 for shot quality allowed, both far past significance, R² = 0.28 over 418
+consecutive team-seasons.</p>
+<p>That is worth sitting with. Without defender data, contest quality is invisible to
+a location model, so a defense that consistently runs shooters off the line and
+gets a hand up shows up as "luck". The persistence of that residual is evidence it
+is not luck. It is defense the public files cannot see.</p>
+<figure><img loading="lazy" alt="Defense carryover" src="figures/12_defence_carryover.png"></figure>
+<hr>
+<h2>The model</h2>
+<p>Gradient-boosted classifier on P(make), multiplied by 2 or 3, in two
+specifications.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>AUC</th>
+<th>Log loss</th>
+<th>Brier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry only</td>
+<td class="num">0.627</td>
+<td class="num">0.658</td>
+<td class="num">0.233</td>
+</tr>
+<tr>
+<td>Geometry + action + clock (within season)</td>
+<td class="num">0.664</td>
+<td class="num">0.636</td>
+<td class="num">0.224</td>
+</tr>
+<tr>
+<td>Distance only</td>
+<td class="num">0.624</td>
+<td class="num">0.659</td>
+<td class="num">0.233</td>
+</tr>
+<tr>
+<td>League make rate</td>
+<td class="num">0.500</td>
+<td class="num">0.690</td>
+<td class="num">0.248</td>
+</tr>
+</tbody>
+</table></div>
+<p>Three choices that matter more than the hyperparameters:</p>
+<p><strong>Every prediction is out of fold, split by game.</strong> No shot is scored by a model
+that saw another shot from the same game. Skip this and a player's shot-making
+residual partly measures the model memorising him.</p>
+<p><strong>No season term.</strong> With one, league-wide changes in conversion get absorbed into
+the expectation and the era decomposition collapses to zero by construction.</p>
+<p>The geometry model's expected value as a surface, one square foot at a time:</p>
+<figure><img loading="lazy" alt="Value surface" src="figures/04_value_surface.png"></figure>
+<p><strong>Calibration over discrimination.</strong> AUC on a single shot is capped low — most of
+the variance in whether one jumper goes in is irreducible, and a shot model that
+scores much higher is reading something it should not. What the decomposition
+needs is that the expectations are unbiased in aggregate, and they are: across 20
+equal-count bins the largest gap between predicted and actual is 0.002 for the
+geometry model and 0.004 for the full one, and mean expected points equals mean
+actual points to four decimals.</p>
+<hr>
+<h2>What this does not measure</h2>
+<ul>
+<li><strong>Openness.</strong> The public shot files carry no defender distance and no shot
+  clock. "Shot quality" here is the quality of the spot, not of the possession. A
+  wide-open 26-footer and a contested one are the same row.</li>
+<li><strong>Free throws.</strong> Points per <em>field goal attempt</em>, so a player who draws fouls
+  instead of shooting over them is undercounted. Shot value, not offensive value.</li>
+<li><strong>Playmaking.</strong> Credit lands entirely on the shooter. The pass that created the
+  look is not in this data.</li>
+<li><strong>Regular season only</strong>, 2003-04 forward, which is where the coordinate files
+  begin.</li>
+</ul>
+<hr>
+<h2>Running it</h2>
+<pre><code class="language-bash">pip install -r requirements.txt
+python src/run_01_build.py        # raw season files -&gt; one model-ready table
+python src/run_02_fit.py          # both specifications, out-of-fold  (~10 min)
+python src/run_03_league.py       # era decomposition, figures 01-06
+python src/run_04_players.py      # player-season metrics, figures 07-08
+python src/run_05_reliability.py  # split-half and year-over-year, figures 09-10
+python src/run_06_defense.py      # the defensive side, figures 11-12
+python src/run_07_robustness.py   # six attempts to break the headline
+</code></pre>
+<p>Or <code>make all</code>. Stage 2 is the only slow step; everything after it reads its
+cached output.</p>
+<pre><code>src/
+  config.py       paths, seasons, thresholds, the coordinate-era cutoff
+  features.py     raw rows -&gt; features, action families, coordinate repair
+  model.py        the two specifications and the out-of-fold fit
+  court.py        half-court drawing in the data's own coordinates
+  labels.py       collision-resolving point labels for the scatterplots
+  style.py        one place that decides what every figure looks like
+  run_0*.py       the pipeline, in order
+output/           every number quoted above, as CSV
+figures/          twelve figures, regenerated from scratch by the pipeline
+docs/method.md    longer notes on the decomposition and its assumptions
+</code></pre>
+<h2>Data</h2>
+<p>Shot-level files from <a href="https://github.com/DomSamangy/NBA_Shots_04_24">DomSamangy/NBA_Shots_04_24</a>,
+which packages the NBA's public shot chart endpoint by season. <code>data/README.md</code>
+has the fetch step. The raw files are about 850 MB unzipped and are not committed;
+the derived tables in <code>output/</code> are, so every number in this README can be checked
+without rerunning anything.</p>
+<p>Three of the twenty-two season files are published on a different coordinate scale
+from the other nineteen — x compressed by a factor of ten, y compressed and
+shifted. <code>features.normalise_coordinates</code> detects and inverts it, and
+<code>output/build_audit.csv</code> records which seasons were repaired and the independent
+cross-check that confirms it: recomputed distance now agrees with the files' own
+distance column to within half a foot in all twenty-two.</p>
+<h2>License</h2>
+<p>MIT. See <code>LICENSE</code>.</p>
+</div></main>
+<footer class="foot"><div class="wrap"><span>nba-shot-value</span><span>figures and tables regenerated by the pipeline in this repository</span></div></footer>
+</body>
+</html>
