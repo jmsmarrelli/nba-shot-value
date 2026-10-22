@@ -31,8 +31,7 @@ def main() -> None:
     for season in SEASONS:
         path = RAW / f"NBA_{season}_Shots.csv"
         if not path.exists():
-            print(f"  missing {path.name} - skipping", file=sys.stderr)
-            continue
+            raise FileNotFoundError(f"Missing required raw input: {path}")
         t0 = time.time()
         raw = pd.read_csv(path, low_memory=False)
         tidy = features.build(raw)

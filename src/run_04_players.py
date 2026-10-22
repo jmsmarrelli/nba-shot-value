@@ -7,7 +7,7 @@ Two numbers per player-season, both in points per attempt:
     SQ  mean expected value of the shots he took
     SM  mean actual minus expected on those shots
 
-SM is centered on the season's league mean so a 2005 shooter and a 2025 shooter
+SM is centred on the season's league mean so a 2005 shooter and a 2025 shooter
 are graded against their own peers rather than against each other. SQ is left
 uncentred: the drift in shot quality across eras is the finding, not a nuisance.
 
@@ -89,7 +89,7 @@ def fig_quadrant(ps: pd.DataFrame, season: int) -> None:
     fig.tight_layout()
     L.place(ax, tag["sq"], tag["sm"], tag["player"], colour=S.INK)
     S.caption(fig, f"Players with {MIN_FGA}+ field goal attempts. Marker size is attempts. "
-                   "Labeled: the leaders and trailers on each axis, plus the four highest "
+                   "Labelled: the leaders and trailers on each axis, plus the four highest "
                    "volume shooters.")
     fig.savefig(FIG / "07_player_quadrant.png")
     plt.close(fig)

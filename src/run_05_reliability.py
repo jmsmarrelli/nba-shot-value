@@ -12,7 +12,7 @@ but "which of these numbers will still be true next year". Two tests:
   being worth listening to.
 
 * **Season to season.** The harsher test, because it has to survive a new team,
-  a new role, a year of aging and a new set of defenses.
+  a new role, a year of aging and a new set of defences.
 
 Writes output/reliability_curve.csv, output/reliability_yoy.csv, two figures.
 """
@@ -132,7 +132,7 @@ def fig_curve(cur: pd.DataFrame) -> None:
     ax.set_ylabel("Split-half correlation across players")
     ax.set_title("How many shots before the number means anything", loc="left")
     S.caption(fig, "Two disjoint random samples of m attempts from the same player-season, "
-                   f"averaged over {N_REPEATS} draws, centered within season, {COORD_ERA_START - 1}-{str(COORD_ERA_START)[2:]} to 2024-25. "
+                   f"averaged over {N_REPEATS} draws, centred within season, {COORD_ERA_START - 1}-{str(COORD_ERA_START)[2:]} to 2024-25. "
                    "Bands are ±2 standard deviations across draws.")
     fig.tight_layout()
     fig.savefig(FIG / "09_reliability_curve.png")
