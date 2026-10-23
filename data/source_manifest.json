@@ -1,0 +1,178 @@
+[
+  {
+    "path": "data/raw/NBA_2004_Shots.csv",
+    "sha256": "e615c4a365888ad74cd667d352ae9465328720b6063756872c0f7b7e06e0e6c4",
+    "bytes": 36877030,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2004_Shots.csv.zip",
+    "zip_member": "NBA_2004_Shots.csv",
+    "archive_sha256": "f5d612aa4ef9de814ec7179f3ad60a949268625318a360a429d4e56848e641d5"
+  },
+  {
+    "path": "data/raw/NBA_2005_Shots.csv",
+    "sha256": "d7404f810360e3560a8f875096db9b22c6ff2ea82047bb6cb3e9919331ac10a5",
+    "bytes": 38390686,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2005_Shots.csv.zip",
+    "zip_member": "NBA_2005_Shots.csv",
+    "archive_sha256": "5965e7ac54049f1e216275c5b127c156f163f0fed2b0eb9ed59fa396e082460d"
+  },
+  {
+    "path": "data/raw/NBA_2006_Shots.csv",
+    "sha256": "58d4f7ff5d5cea58c28cfc2239b860d748b5d886dfb9a5312146e44966cdba66",
+    "bytes": 37917403,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2006_Shots.csv.zip",
+    "zip_member": "NBA_2006_Shots.csv",
+    "archive_sha256": "3d00525be09f15302166c29fb60137f44ea41bffb874b87a0b2be43533136fe9"
+  },
+  {
+    "path": "data/raw/NBA_2007_Shots.csv",
+    "sha256": "7e9effdc17fbec423d9ddce8355808db21a4c1f452379080c5854f46db6d5ff1",
+    "bytes": 38304685,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2007_Shots.csv.zip",
+    "zip_member": "NBA_2007_Shots.csv",
+    "archive_sha256": "07bc190f986aec659e67b8096825c287ce13782644656db7dd79b73c460c4e2a"
+  },
+  {
+    "path": "data/raw/NBA_2008_Shots.csv",
+    "sha256": "e035bdc838e1d8f51db82b682bfd9dc25341c4e935a048f9b1d0b2a574416237",
+    "bytes": 39193002,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2008_Shots.csv.zip",
+    "zip_member": "NBA_2008_Shots.csv",
+    "archive_sha256": "81d74bdc7092a75a6391e57eee4c1d6ad810f77443bd7a70a85b08512bf8d62d"
+  },
+  {
+    "path": "data/raw/NBA_2009_Shots.csv",
+    "sha256": "254ad883cae9edfbb7dabeb46a745a47852003901061db930d520f28f5e9de15",
+    "bytes": 38985305,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2009_Shots.csv.zip",
+    "zip_member": "NBA_2009_Shots.csv",
+    "archive_sha256": "52896a776c49291f88a51166237703dede61f6513227144bfc0644cbfc32e929"
+  },
+  {
+    "path": "data/raw/NBA_2010_Shots.csv",
+    "sha256": "8aae4c885974ccdaff46a44b697fd8c672cdb77047582599605f79f3e463c829",
+    "bytes": 39457514,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2010_Shots.csv.zip",
+    "zip_member": "NBA_2010_Shots.csv",
+    "archive_sha256": "25dbe44785979673477f24d34706da7ec3437b51171175df9e6f5ddd7c5c6232"
+  },
+  {
+    "path": "data/raw/NBA_2011_Shots.csv",
+    "sha256": "099d04ed96da73488a13c54029b56105f046fce9c6b8803535f76f0ea3e02838",
+    "bytes": 39358695,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2011_Shots.csv.zip",
+    "zip_member": "NBA_2011_Shots.csv",
+    "archive_sha256": "e6017b3e0321395c7789722d1de96bc05ce0bc9adbfaee3132a37148b1b3bfa8"
+  },
+  {
+    "path": "data/raw/NBA_2012_Shots.csv",
+    "sha256": "3201ff42d1b5beb4ec85e5f1c4ba216031f60448abc49cdc529bcb799e20c416",
+    "bytes": 31795733,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2012_Shots.csv.zip",
+    "zip_member": "NBA_2012_Shots.csv",
+    "archive_sha256": "8d190a2480992f163c8381f47a6e565ad2ab305c3203c23ae0228967cfd18ac5"
+  },
+  {
+    "path": "data/raw/NBA_2013_Shots.csv",
+    "sha256": "82d99ecd4fe28de9382feb75953a85da192dd01bdc127789afd770236d61a303",
+    "bytes": 39829995,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2013_Shots.csv.zip",
+    "zip_member": "NBA_2013_Shots.csv",
+    "archive_sha256": "d3b04d409929bb704b1f452541c485e158128161e1895da6ec7ab7ce9fdd9400"
+  },
+  {
+    "path": "data/raw/NBA_2014_Shots.csv",
+    "sha256": "f41d55974deaa4a766336b1fb4a185a3d47d5e17de9b06c106ab67cc8ff1c462",
+    "bytes": 40444511,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2014_Shots.csv.zip",
+    "zip_member": "NBA_2014_Shots.csv",
+    "archive_sha256": "4a1913fb8a7612e5534178f56acdd145aefe6313d933734198c2ca20362a622b"
+  },
+  {
+    "path": "data/raw/NBA_2015_Shots.csv",
+    "sha256": "474ff3115b58bc0e8689da260e9c9c44c3f84fa6c53efdabc763bc0457407a97",
+    "bytes": 40756507,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2015_Shots.csv.zip",
+    "zip_member": "NBA_2015_Shots.csv",
+    "archive_sha256": "73fab2570ff4c7bba446adde0c0447cb1e12cf6d7d333562c394d03f1bd8f123"
+  },
+  {
+    "path": "data/raw/NBA_2016_Shots.csv",
+    "sha256": "19bf716726607930cba0f044eef1c1213b6d51f1272f56ebf2aa4b7b9a769f62",
+    "bytes": 41452087,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2016_Shots.csv.zip",
+    "zip_member": "NBA_2016_Shots.csv",
+    "archive_sha256": "1eb91af015295d0457115178ed58ebd0217e58c8b24e5e9bc917d511704bd04b"
+  },
+  {
+    "path": "data/raw/NBA_2017_Shots.csv",
+    "sha256": "5c60b348a9f83f64ddf57513cfac71076b5d86055a9b08b179d98ee947bdbaa2",
+    "bytes": 42052559,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2017_Shots.csv.zip",
+    "zip_member": "NBA_2017_Shots.csv",
+    "archive_sha256": "d4e26d5d8a90a91ab5fdb32ac1fd3ea856f8316b813c38dc218518622cfbbb97"
+  },
+  {
+    "path": "data/raw/NBA_2018_Shots.csv",
+    "sha256": "5cbc76ab9538c521eaaaba02c281be4aa19b3500fa9325fb646ab43702fd3066",
+    "bytes": 42690294,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2018_Shots.csv.zip",
+    "zip_member": "NBA_2018_Shots.csv",
+    "archive_sha256": "8bee1c4203585338c53ffd1b3c90eaa5fd7c99815d2b7b4fa10d43d8845cfbee"
+  },
+  {
+    "path": "data/raw/NBA_2019_Shots.csv",
+    "sha256": "d53f8698054608a89e3b67247b158175c20ce812be9aab89f1d0db3d3eae4416",
+    "bytes": 44514889,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2019_Shots.csv.zip",
+    "zip_member": "NBA_2019_Shots.csv",
+    "archive_sha256": "c8c0d6a4c61c0a4a25d14637ff94bf7219f2a7b8fe1b2d6f0985b36cba091241"
+  },
+  {
+    "path": "data/raw/NBA_2020_Shots.csv",
+    "sha256": "31099b68294ff2104582cd03f023f509aee38456fcbb9c6c201451e69b5a6897",
+    "bytes": 39004884,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2020_Shots.csv.zip",
+    "zip_member": "NBA_2020_Shots.csv",
+    "archive_sha256": "c2eb57da3741a3dccc9a15bbebe91bf62574d75f9be2e598f34d4f2f94eec74c"
+  },
+  {
+    "path": "data/raw/NBA_2021_Shots.csv",
+    "sha256": "0a6408b424bd10f1a02e0c49d51d45463cd99bfd26e52bdf5b62cbddb0e350f5",
+    "bytes": 39642696,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2021_Shots.csv.zip",
+    "zip_member": "NBA_2021_Shots.csv",
+    "archive_sha256": "81af5636e8bfce34f3361d6c0cb886cb9b342a329d036963e2b98be15dc94a26"
+  },
+  {
+    "path": "data/raw/NBA_2022_Shots.csv",
+    "sha256": "315ae83b6d50b3e480ffc3f76da9f94905c4d0c01569935b4ab23d5e71f7bfce",
+    "bytes": 45128641,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2022_Shots.csv.zip",
+    "zip_member": "NBA_2022_Shots.csv",
+    "archive_sha256": "644a6302b568f2bbf892d482db055505d1b83b7e5c44b28212359a5533b4ddef"
+  },
+  {
+    "path": "data/raw/NBA_2023_Shots.csv",
+    "sha256": "7d1361e595807373e4d91f1c544a9bc88c10a1395bc9394f02d1d04d16a8d2e6",
+    "bytes": 44492552,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2023_Shots.csv.zip",
+    "zip_member": "NBA_2023_Shots.csv",
+    "archive_sha256": "df09e7053755f20a03c15b70de40635bf7314c2182449e0a8404bca0042250b2"
+  },
+  {
+    "path": "data/raw/NBA_2024_Shots.csv",
+    "sha256": "6e31b7d9b241d9d06a09fc90073d50b3f0f67f35226ac663b53111321d4e8b2a",
+    "bytes": 44877217,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2024_Shots.csv.zip",
+    "zip_member": "NBA_2024_Shots.csv",
+    "archive_sha256": "ab46f9488d8fe5d39e9bff9725f64ea9f4dbe2617cf8373d9e3954bb6bb5bba8"
+  },
+  {
+    "path": "data/raw/NBA_2025_Shots.csv",
+    "sha256": "8dd988d50820be5c22489e34ecee253aaf32cf6d8984dffcf75f11d172492be1",
+    "bytes": 44086196,
+    "url": "https://raw.githubusercontent.com/DomSamangy/NBA_Shots_04_25/main/NBA_2025_Shots.csv.zip",
+    "zip_member": "NBA_2025_Shots.csv",
+    "archive_sha256": "7f04eac61284585b3fa681813841eb08f927f461602a93400df42442eee4ef40"
+  }
+]

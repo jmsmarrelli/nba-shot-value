@@ -1,4 +1,4 @@
-"""Stage 3 - split twenty-two seasons of league offense into shots and makes.
+"""Stage 3 - split twenty-two seasons of league offence into shots and makes.
 
     python src/run_03_league.py
 
@@ -135,7 +135,7 @@ def fig_zone_shares(shares: pd.DataFrame) -> None:
     ax.set_xticks(range(2004, 2026, 3))
     ax.set_ylabel("Share of field goal attempts (%)")
     ax.set_title("The shot chart emptied from the middle out", loc="left")
-    S.caption(fig, "Corner threes combine the left and right corners. Zones as labeled in "
+    S.caption(fig, "Corner threes combine the left and right corners. Zones as labelled in "
                    "the source data.")
     fig.tight_layout()
     fig.savefig(FIG / "02_zone_shares.png")

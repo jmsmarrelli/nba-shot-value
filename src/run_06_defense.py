@@ -2,14 +2,14 @@
 
     python src/run_06_defense.py
 
-Every shot in the file has a defense attached to it: the other team in the game.
+Every shot in the file has a defence attached to it: the other team in the game.
 Reversing the identity gives each team-season a shot quality *allowed* and a
 shot making *allowed*.
 
 The result is less tidy than the popular version of this argument, and more
-useful. Inside a single season both halves of a team's defense look stable,
+useful. Inside a single season both halves of a team's defence look stable,
 because a team-season is roughly 7,000 opponent attempts and almost anything is
-stable at that sample. Across seasons they come apart: the map a defense forces
+stable at that sample. Across seasons they come apart: the map a defence forces
 opponents into carries, and the percentage those opponents shot does not. That
 gap is the whole practical point, because the number in the standings is the
 one that does not carry.
@@ -33,8 +33,8 @@ from config import COORD_ERA_START, FIG, LAST_SEASON, OUT  # noqa: E402
 import style as S  # noqa: E402
 from run_03_league import load  # noqa: E402
 
-SIDES = [("Offense", "shot quality"), ("Offense", "shot making"),
-         ("Defense", "shot quality allowed"), ("Defense", "shot making allowed")]
+SIDES = [("Offence", "shot quality"), ("Offence", "shot making"),
+         ("Defence", "shot quality allowed"), ("Defence", "shot making allowed")]
 
 
 def attach_defence(shots: pd.DataFrame) -> pd.DataFrame:
@@ -84,7 +84,7 @@ def split_half(shots: pd.DataFrame, team_col: str) -> dict:
 def carryover(tab: pd.DataFrame, side: str) -> pd.DataFrame:
     """Correlate a season with the next one, for the same franchise.
 
-    Everything is centered within its own season first. Without that, the
+    Everything is centred within its own season first. Without that, the
     twenty-year league-wide climb in shot quality is common to every team in a
     season pair and shows up as a spurious 0.95 correlation that is really just
     the calendar.
@@ -105,7 +105,7 @@ def carryover(tab: pd.DataFrame, side: str) -> pd.DataFrame:
 
 
 def next_season_regression(tab: pd.DataFrame, side: str) -> pd.DataFrame:
-    """Standardized coefficients on next season's points per shot.
+    """Standardised coefficients on next season's points per shot.
 
     Correlations taken one at a time cannot separate two correlated inputs.
     Both halves in the same regression can, and the coefficients are in units of
@@ -164,7 +164,7 @@ def fig_dumbbell(rel: pd.DataFrame) -> None:
                         "Blue: this season against the next one.",
             transform=ax.transAxes, fontsize=9, color=S.INK_2)
     S.caption(fig, f"Team-seasons, {COORD_ERA_START - 1}-{str(COORD_ERA_START)[2:]} to 2024-25. Within-season figures are odd games "
-                   "against even games, corrected to full-season length. Both are centered "
+                   "against even games, corrected to full-season length. Both are centred "
                    "within season.")
     fig.tight_layout()
     fig.savefig(FIG / "11_team_reliability.png")
@@ -172,7 +172,7 @@ def fig_dumbbell(rel: pd.DataFrame) -> None:
 
 
 def fig_carry(carry: pd.DataFrame) -> None:
-    d = carry[carry["side"] == "Defense"].set_index("metric")
+    d = carry[carry["side"] == "Defence"].set_index("metric")
     order = ["pps", "sq", "sm"]
     names = {"pps": "Points allowed per shot", "sq": "Shot quality allowed",
              "sm": "Shot making allowed"}
@@ -197,13 +197,13 @@ def fig_carry(carry: pd.DataFrame) -> None:
     S.strip(ax, keep=("bottom",))
     ax.tick_params(axis="y", labelsize=9.2)
     ax.set_xlabel("Correlation with points allowed per shot")
-    ax.set_title("What this season's defense says about the next one", loc="left", pad=30)
+    ax.set_title("What this season's defence says about the next one", loc="left", pad=30)
     ax.text(0.0, 1.035, "Orange: the same season.   Blue: the following season.",
             transform=ax.transAxes, fontsize=9, color=S.INK_2)
-    S.caption(fig, f"Consecutive team-seasons, {COORD_ERA_START - 1}-{str(COORD_ERA_START)[2:]} to 2024-25, centered within season. Shot "
+    S.caption(fig, f"Consecutive team-seasons, {COORD_ERA_START - 1}-{str(COORD_ERA_START)[2:]} to 2024-25, centred within season. Shot "
                    "making allowed is the larger driver of this year's number and still the "
                    "better single predictor of next year's, which is not what the usual "
-                   "'defenses control location, not conversion' story predicts.")
+                   "'defences control location, not conversion' story predicts.")
     fig.tight_layout()
     fig.savefig(FIG / "12_defence_carryover.png")
     plt.close(fig)
@@ -212,18 +212,18 @@ def fig_carry(carry: pd.DataFrame) -> None:
 def main() -> None:
     shots = attach_defence(load().query("season >= @COORD_ERA_START"))
 
-    off = side_table(shots, "team_abbrev", "Offense")
-    dfn = side_table(shots, "def_team", "Defense")
+    off = side_table(shots, "team_abbrev", "Offence")
+    dfn = side_table(shots, "def_team", "Defence")
     both = pd.concat([off, dfn], ignore_index=True)
     both.round(5).to_csv(OUT / "team_defense.csv", index=False)
 
     ro, rd = split_half(shots, "team_abbrev"), split_half(shots, "def_team")
-    carry = pd.concat([carryover(both, "Offense"), carryover(both, "Defense")],
+    carry = pd.concat([carryover(both, "Offence"), carryover(both, "Defence")],
                       ignore_index=True)
     carry.round(4).to_csv(OUT / "defense_carryover.csv", index=False)
 
-    within = {("Offense", "sq"): ro["sq"], ("Offense", "sm"): ro["sm"],
-              ("Defense", "sq"): rd["sq"], ("Defense", "sm"): rd["sm"]}
+    within = {("Offence", "sq"): ro["sq"], ("Offence", "sm"): ro["sm"],
+              ("Defence", "sq"): rd["sq"], ("Defence", "sm"): rd["sm"]}
     rows = []
     for (side, label), metric in zip(SIDES, ["sq", "sm", "sq", "sm"]):
         w = within[(side, metric)]
@@ -241,20 +241,20 @@ def main() -> None:
     print()
     print(carry.round(3).to_string(index=False))
 
-    d = both[(both["season"] == LAST_SEASON) & (both["side"] == "Defense")]
+    d = both[(both["season"] == LAST_SEASON) & (both["side"] == "Defence")]
     print(f"\n--- {LAST_SEASON - 1}-{str(LAST_SEASON)[2:]} best shot quality allowed ---")
     print(d.nsmallest(8, "sq")[["team", "sq", "sm", "pps"]].to_string(
         index=False, float_format=lambda v: f"{v:.3f}"))
 
-    dd = both[both["side"] == "Defense"]
+    dd = both[both["side"] == "Defence"]
     v_sq = dd.groupby("season")["sq"].std().mean()
     v_sm = dd.groupby("season")["sm"].std().mean()
     print(f"\naverage within-season spread across teams (SD):  "
           f"shot quality allowed {v_sq:.4f}, shot making allowed {v_sm:.4f}")
 
     print("\npredicting next season's points allowed per shot from this season's two halves")
-    print(next_season_regression(both, "Defense").round(3).to_string(index=False))
-    print(next_season_regression(both, "Offense").round(3).to_string(index=False))
+    print(next_season_regression(both, "Defence").round(3).to_string(index=False))
+    print(next_season_regression(both, "Offence").round(3).to_string(index=False))
 
 
 if __name__ == "__main__":
